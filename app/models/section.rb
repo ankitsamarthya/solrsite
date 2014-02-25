@@ -19,4 +19,9 @@ class Section < ActiveRecord::Base
    scope :newest_first, lambda {order("sections.created_at DESC")}
    scope :search, lambda {|query|
    	where(["name LIKE ?","%#{query}%"])}
+
+      searchable :auto_index=>true do 
+      text :name , :as => :name_textp
+      
+   end
 end

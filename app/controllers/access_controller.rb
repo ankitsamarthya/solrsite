@@ -50,7 +50,7 @@ class AccessController < ApplicationController
 
   	def search
 
-  		@results = Sunspot.search(Subject,Page) do |q|
+  		@results = Sunspot.search(Subject,Page, Section) do |q|
   			if params[:search].present?
   				q.fulltext params[:search]
   				# q.paginate :page => 1, :per_page => 10
