@@ -1,0 +1,31 @@
+<%= link_to("<<Back to Pages",{:controller => 'pages', :action => 'index',:subject_id => @page.subject_id}, :class => 'back-link')%>
+<div class="sections index">
+<h2>Sections</h2>
+<%=  link_to("Add new section",{:action => 'new',:page_id => @page.id},:class => 'action new') %>
+<table>
+	<tr class="header">
+		<th class="center">Position</th>
+		<th class="center">Page</th>
+		<th class="center">Section</th>
+		<th class="center">Visible</th>
+		<th class="center">Contnt Type</th>
+		<th class="center">Content</th>
+		<th class="center">Actions</th>
+	</tr>
+    <% @sections.each do |section| %>
+    <tr class="<%= cycle('odd','even') %>">
+    	<td class="center"><%= section.position %></td>
+    	<td class="center"><%= section.page.name if section.page %></td>
+    	<td><%= section.name %></td>
+    	<td class="center"><%= status_tag(section.visible) %></td>
+    	<td ><%= section.content_type %></td>
+    	<td ><%= section.content %></td>
+    	<td class="actions">
+    	  <%= link_to("Show",{:action => 'show' , :id => section.id,:page_id => @page.id},:class => 'action show') %>
+    	  <%= link_to("Edit",{:action => 'edit' , :id => section.id,:page_id => @page.id},:class => 'action edit') %>
+    	  <%= link_to("Delete",{:action => 'delete' , :id => section.id,:page_id => @page.id},:class => 'action delete') %>
+    	  </td>
+    </tr>
+    <% end %>
+</table>
+</div>

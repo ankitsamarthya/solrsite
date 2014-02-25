@@ -1,0 +1,10 @@
+<h1>Demo#index</h1>
+<p>Hello from the index page</p>
+<%= link_to('Go back',{action:'hello',:id => 20,:page => 5}) %>
+
+<br>
+<% name="hello" %>
+<% name="Sorry!');alert('i hacked u!" %>
+<%= link_to('Roar','#', :onclick => "jsRoar('#{name}'); return true;") %>
+
+<%= javascript_tag("jsRoar('#{j(name)}');") %>

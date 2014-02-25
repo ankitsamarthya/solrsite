@@ -1,0 +1,39 @@
+
+<%= link_to("<<Back to List",{:action => 'index'}, :class => 'back-link')%>
+<br>
+<%= link_to("<<Back to Main Menu",{:controller => 'access', :action => 'index'}, :class => 'back-link')%>
+
+<div class="subjects show">
+	<h2>Show Admin User</h2>
+
+	<table summary="Admin User Details">
+		<tr>
+			<th>First Name</th>
+			<th><%= @admin_user.first_name %></th>
+		</tr>
+		<tr>
+			<th>Last Name</th>
+			<th><%= @admin_user.last_name%></th>
+		</tr>
+		<tr>
+			<th>Username</th>
+			<td><%= @admin_user.username %></td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td><%= @admin_user.email %></td>
+		</tr>
+		<tr>
+			<th>Password Digest</th>
+			<td><%= @admin_user.password_digest %></td>
+		</tr>
+		<tr>
+			<th>Created</th>
+			<td><%= @admin_user.created_at %></td>
+		</tr>
+		<tr>
+			<th>Updated</th>
+			<td><%= @admin_user.updated_at%></td>
+		</tr>
+	</table>
+</div>

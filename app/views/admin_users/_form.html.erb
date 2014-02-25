@@ -1,0 +1,31 @@
+<%= error_messages_for(@admin_user) %>
+<table summary="Admin form fields">
+	<tr> 
+		<th><%= f.label(:name,"First Name") %></th>
+		<td><%= f.text_field(:first_name, placeholder: 'Enter First Name') %></td>
+	</tr>
+	<tr> 
+		<th><%= f.label(:name,"Last Name") %></th>
+		<td><%= f.text_field(:last_name, placeholder: 'Enter Last Name') %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:email) %></th>
+		<td><%= f.text_field(:email,placeholder: 'Enter Email') %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:username) %></th>
+		<td><%= f.text_field(:username,placeholder: 'Enter User Name') %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:password) %></th>
+		<td><%= f.password_field(:password) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:password_confirmation) %></th>
+		<td><%= f.password_field(:password_confirmation) %></td>
+	</tr>
+	<!-- <tr>
+		<th><%= f.label(:created_at) %></th>
+		<td><%= f.datetime_select(:created_at, :order => [:month, :day, :year]) %></td>
+	</tr> -->
+</table>

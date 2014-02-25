@@ -1,0 +1,36 @@
+<% @page_title = "Admin Users"%>
+<br>
+<%= link_to("<<Back to Main Menu",{:controller => 'access', :action => 'index'}, :class => 'back-link')%>
+<div class="admin_users index">
+<h2>Admin Users</h2>
+<%=  link_to("Add new Admin User",{:action => 'new'},:class => 'action new') %>
+<table>
+	<tr class="header">
+		<th>&nbsp;</th>
+		<th>First Name</th>
+        <th>Last Name</th>
+		<th>Email</th>
+		<th>Username</th>
+		<th>Actions</th>
+	</tr>
+    <% @admin_users.each do |admin_users| %>
+    <tr class="<%= cycle('odd','even') %>">
+    	<td><%= admin_users.id %></td>
+    	<td><%= admin_users.first_name  %></td>
+        <td><%= admin_users.last_name %></td>
+    	<td><%= admin_users.email %></td>
+    	<td><%= admin_users.username %></td>
+    	<td class="actions">
+    	  <%= link_to("Show",{:action => 'show' , :id => admin_users.id},:class => 'action show') %>
+    	  <%= link_to("Edit",{:action => 'edit' , :id => admin_users.id},:class => 'action edit') %>
+    	  <%= link_to("Delete",{:action => 'delete' , :id => admin_users.id},:class => 'action delete') %>
+    	</td>
+    </tr>
+    <% end %>
+</table>
+<br>
+<%= form_for(:admin_sort,:url => {:action => 'index'} )  do |f| %>
+<%= f.select(:sort_type,{"sort by id" => 1,"sort by first_name" => 2,"sort by last_name" => 3},:selected => @admin_sort) %>
+<%= submit_tag("Sort") %>
+<% end %>
+</div>

@@ -1,0 +1,49 @@
+ <% @page_title ="Admin Menu" %>
+
+<p>
+
+<%= form_tag(action: "search", method: "post") %>
+<table summary="Subject form fields">
+	<tr> 
+		<th><%= label_tag(:search,"Search:") %></th>
+		<td><%= text_field_tag :search, nil, :placeholder => 'Enter Search Query' %></td>
+	</tr>
+	<tr> 
+		<th><%= label_tag(:page_to,"Page to:") %></th>
+		<td><%= text_field_tag :page_to, nil, :placeholder => 'Enter Page to' %></td>
+	</tr>
+	<tr> 
+		<th><%= label_tag(:page_from,"Page from:") %></th>
+		<td><%= text_field_tag :page_from, nil, :placeholder => 'Enter Page from' %></td>
+	</tr>
+	<tr>
+	<td><%= button_tag "Reset", type: :reset %></td>
+	<td><%= submit_tag("Submit") %></td>
+</tr>
+</table>
+
+</p>
+<% if (!@results.nil?) %>
+<tbody>
+	<% @results.results.each do |result| %>
+	<p>
+		<tr>
+			<td><%= result.name %></td>
+		</tr>
+	</p>
+	<% end %>
+<% end %>
+</tbody>
+
+<div class="menu">
+	<h2>Admin Menu</h2>
+	<div class="identity">Logged in as:<%= session[:username] %></div>
+	<ul>
+		<li><%= link_to("Manage Content", :controller => 'subjects') %></li>
+		<li><%= link_to("Manage Admin Users", :controller => 'admin_users') %></li>
+		<li><%= link_to("Logout", :action => 'logout') %></li>
+	</ul>
+</div>
+
+ <%=  %>
+ <%  %>

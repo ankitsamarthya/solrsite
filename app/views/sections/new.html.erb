@@ -1,0 +1,16 @@
+<% @page_title = "New Section" %>
+
+<%= link_to("<< Back to List",{:action => 'index',:page_id => @page.id}, :class => 'back-link')%>
+
+<div class="cections new">
+	<h2>Update section Details</h2>
+
+<%= form_for(:section,:url =>{:action => 'create',:page_id => @page.id})  do |f| %>
+<%= render(:partial => "form", :locals => {:f => f}) %>
+
+<div class="form-buttons center">
+	<%= button_tag "Reset", type: :reset %>
+	<%= submit_tag("Create Section") %>
+</div>
+<% end %>
+</div>
